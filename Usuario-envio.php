@@ -45,6 +45,10 @@
 mysqli_set_charset($conexion, "utf8");
         $sql = "SELECT *FROM usuario WHERE usuRol = '$usuRol' AND usuCedula = '$usuCedula' AND usuContraseña = '$usuContraseña' AND usuEstado = 'activo'";
         $result = mysqli_query($conexion, $sql) or die ("Error");
+        // Se crean 3 variables de sesion que guardaran los datos ingresados
+        $_SESSION['usuRol'] = $_POST['usuRol'];
+        $_SESSION['usuCedula'] = $_POST['usuCedula'];
+        $_SESSION['usuContraseña'] = md5($_POST['usuContraseña']);
         // Se guarda en un arreglo
         $row = mysqli_fetch_array($result);
         // Se valida que el arreglo tenga algo y si es asi redirige a una pagina diferente dependiendo del rol

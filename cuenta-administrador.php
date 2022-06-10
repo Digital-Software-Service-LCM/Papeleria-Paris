@@ -15,7 +15,10 @@
 <?php
 $conexion = mysqli_connect("localhost", "id18967970_root", "Software_LCM_2022", "id18967970_papeleria_paris");
 mysqli_set_charset($conexion, "utf8");
-$usuario = "SELECT * FROM usuario where usuRol = 'administrador'";
+$usuRol = $_SESSION['usuRol'];
+$usuCedula = $_SESSION['usuCedula'];
+$usuContraseña = $_SESSION['usuContraseña'];
+$usuario = "SELECT * FROM usuario where usuRol = '$usuRol' and usuCedula = '$usuCedula' and usuContraseña = '$usuContraseña'";
 ?>
 <html lang="es">
 
